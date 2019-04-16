@@ -1,0 +1,47 @@
+
+
+.task{
+
+	&__table{
+		display: grid;
+	    grid-template-columns: 30px 2fr 2fr 2fr 2fr;
+	    grid-gap: 10px;
+	}
+
+	&__row{
+		display: contents;
+		border-bottom: solid 1px gray;
+
+		&:first-child{
+			font-weight: bold;
+		}
+	}
+
+	&__count{
+		font-size: 20px;
+		margin-bottom: 20px;
+		span{
+			font-weight: bold;
+		}
+	}
+
+	&__table{
+		margin: 20px 0;
+	}
+
+	&__add{
+		display: flex;
+		flex-direction: column;
+		max-width: 400px;
+		padding: 20px;
+		border: solid 1px green;
+
+		&_lable{
+			font-weight: bold;
+		}
+
+		&_input{
+			margin: 20px 0;
+		}
+	}
+}

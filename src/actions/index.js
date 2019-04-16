@@ -1,9 +1,14 @@
-export const addTodo = text => ({
+export const addTodo = payload => ({
   type: "ADD_TODO",
-  payload: text
+  payload: payload
 });
 
-export const toggleTodo = index => ({
+export const toggleTodo = id => ({
   type: "TOGGLE_TODO",
-  payload: index
+  payload: id
+});
+
+export const deleteTodo = id => ({
+  type: "DELETE_TODO",
+  payload: id
 });

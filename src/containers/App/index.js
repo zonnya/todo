@@ -1,45 +1,23 @@
 import React, { Component } from "react";
-import _ from "underscore";
 import { connect } from "react-redux";
-import { addTodo, toggleTodo } from "../../actions";
+import { addTodo, toggleTodo, deleteTodo } from "../../actions";
 
-const PropTypes = require("prop-types");
+import Task from "../../components/Task" ;
+
 
 class App extends Component {
   componentDidMount() {}
-  constructor(props) {
-    super(props);
-
-    this.onClick = this.onClick.bind(this);
-  }
-
-  onClick(index) {
-    this.props.onToggle(index);
-  }
-  onAdd(text) {
-    this.props.onAdd(text);
-  }
   render() {
     return (
       <div className="app">
-        <h1>bla</h1>
-        {this.props.state.length}
-        {_.map(this.props.state, (item, i) => {
-          return [
-            <div>{item.text}</div>,
-            <div>{item.isCompleted ? "true" : "false"}</div>,
-            <button onClick={this.onClick.bind(this, i)}> toggle </button>
-          ];
-        })}
-
-        <button onClick={this.onAdd.bind(this, "13")}> add </button>
+        <Task {...this.props} />
       </div>
     );
   }
 }
 
 function mapStateToProps(state) {
-  return { state };
+  return  state ;
 }
 
 function mapDispatchToProps(dispatch) {
@@ -50,6 +28,10 @@ function mapDispatchToProps(dispatch) {
 
     onAdd: function(text) {
       dispatch(addTodo(text));
+    },
+
+    onDelete: function(index) {
+      dispatch(deleteTodo(index));
     }
   };
 }
